@@ -1,4 +1,5 @@
-from zipfile import ZipFile
+from datetime import datetime
+from zipfile import ZipFile,ZIP_DEFLATED
 
 files = [
     "auto-update.sh",
@@ -6,6 +7,7 @@ files = [
     "tank-pi.py"
 ]
 
-with ZipFile('tank-pi.zip', 'w') as zip:
+with ZipFile('tank-pi.zip', mode='w', compression=ZIP_DEFLATED, compresslevel=9) as thezip:
     for file in files:
-        zip.write(file)
+        thezip.write(file)
+    thezip.writestr("version", datetime.now().strftime("%Y/%m/%d"))
