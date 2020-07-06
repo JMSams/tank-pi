@@ -9,3 +9,5 @@ curl -s https://api.github.com/repos/JMSams/tank-pi/releases/latest \
 unzip -o -q temp.zip -d ./tank-pi
 
 rm temp.zip
+
+pip3 install -r ./tank-pi/requirements.txt
